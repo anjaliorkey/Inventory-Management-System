@@ -12,6 +12,7 @@ use App\Http\Middleware\CheckUser;
 // });
 
 Route::get('/', function () {
+<<<<<<< HEAD
 
     if (auth()->check()) {
         return redirect()->route('dashboard');
@@ -19,6 +20,9 @@ Route::get('/', function () {
 
     return view('welcome');
 
+=======
+    return view('admin.dashboard');
+>>>>>>> origin/feature/adminlte
 });
 
 Route::get('/dashboard', function () {
