@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('layouts.header')
+@include('admin.layouts.header')
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
 <div class="wrapper">
 
-    <!-- Preloader -->
-    @include('layouts.preloader')
+    {{-- Preloader --}}
+    @include('admin.layouts.preloader')
 
+    {{-- Navbar --}}
+    @include('admin.layouts.navbar')
 
-    <!-- Navbar -->
-    @include('layouts.navbar')
+    {{-- Sidebar --}}
+    @include('admin.layouts.sidebar')
 
-
-    <!-- Sidebar -->
-    @include('layouts.sidebar')
-
-
-    <!-- Content Wrapper -->
+    {{-- Content Wrapper --}}
     <div class="content-wrapper">
 
-        <!-- Content Header -->
+        {{-- Content Header --}}
         <div class="content-header">
             <div class="container-fluid">
 
@@ -30,68 +27,51 @@
 
                     <div class="col-sm-6">
                         <h1 class="m-0">
-                            @yield('page_title')
+                            @yield('page_title', 'Dashboard')
                         </h1>
                     </div>
 
-
                     <div class="col-sm-6">
-
                         <ol class="breadcrumb float-sm-right">
-
                             <li class="breadcrumb-item">
-                                <a href="#">
-                                    Home
-                                </a>
+                                <a href="{{ route('admin.dashboard') }}">Home</a>
                             </li>
 
                             <li class="breadcrumb-item active">
-                                @yield('page_title')
+                                @yield('page_title', 'Dashboard')
                             </li>
-
                         </ol>
-
                     </div>
 
                 </div>
 
             </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /.content-header --}}
 
-
-        <!-- Main Content -->
+        {{-- Main Content --}}
         <section class="content">
-
             <div class="container-fluid">
 
                 @yield('content')
 
             </div>
-
         </section>
-        <!-- /.content -->
-
+        {{-- /.content --}}
 
     </div>
-    <!-- /.content-wrapper -->
+    {{-- /.content-wrapper --}}
 
+    {{-- Footer --}}
+    @include('admin.layouts.footer')
 
-    <!-- Footer -->
-    @include('layouts.footer')
-
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-    </aside>
-
+    {{-- Control Sidebar --}}
+    <aside class="control-sidebar control-sidebar-dark"></aside>
 
 </div>
-<!-- ./wrapper -->
+{{-- ./wrapper --}}
 
-
-@include('layouts.script')
-
+@include('admin.layouts.script')
 
 </body>
 </html>

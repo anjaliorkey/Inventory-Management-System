@@ -122,15 +122,38 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" >
+          <i class="fas fa-user-circle fa-lg"></i>
         </a>
+        <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-item text-center">
+                @if(Auth::check())
+                    <strong>{{ Auth::user()->name }}</strong><br>
+                    <small>{{ ucfirst(Auth::user()->role) }}</small>
+                @endif
+               <small class="text-muted">Administrator</small>
+            </div>
+
+             <a href="" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Profile
+        </a>
+
+        <div class="dropdown-divider"></div>
+
+        <form method="POST" action="">
+            @csrf
+            <button class="dropdown-item text-danger" type="submit">
+                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+            </button>
+        </form>
+
+
+
+        </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
+
       </li>
     </ul>
   </nav>

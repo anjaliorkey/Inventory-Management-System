@@ -6,13 +6,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StaffController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\CheckUser;
+use App\Http\Controllers\Admin\CategoryController;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
 Route::get('/', function () {
-<<<<<<< HEAD
+
 
     if (auth()->check()) {
         return redirect()->route('dashboard');
@@ -20,9 +21,9 @@ Route::get('/', function () {
 
     return view('welcome');
 
-=======
+
     return view('admin.dashboard');
->>>>>>> origin/feature/adminlte
+
 });
 
 Route::get('/dashboard', function () {
@@ -38,14 +39,19 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::middleware([CheckAdmin::class])->group(function () {
-    
+
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+
+
+    //Categories
+    Route::get('/category', [CategoryController::class, 'index'  ])->name('admin.categories.index');
 
 });
 
 
 Route::middleware([CheckUser::class])->group(function () {
-    
+
         Route::get('/staff/dashboard', [StaffController::class, 'index'])->name('staff.dashboard');
 
 });

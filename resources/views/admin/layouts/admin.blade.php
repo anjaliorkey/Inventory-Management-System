@@ -26,11 +26,11 @@
 <div class="wrapper">
 
     <!-- Navbar -->
-    @include('layouts.navbar')
+    @include('admin.layouts.navbar')
 
 
     <!-- Sidebar -->
-    @include('layouts.sidebar')
+    @include('admin.layouts.sidebar')
 
 
     <!-- Content Wrapper -->
@@ -52,7 +52,7 @@
 
 
     <!-- Footer -->
-    @include('layouts.footer')
+    @include('admin.layouts.footer')
 
 
 </div>
