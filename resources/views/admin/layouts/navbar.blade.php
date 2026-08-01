@@ -141,7 +141,7 @@
 
         <div class="dropdown-divider"></div>
 
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button class="dropdown-item text-danger" type="submit">
                 <i class="fas fa-sign-out-alt mr-2"></i> Logout
