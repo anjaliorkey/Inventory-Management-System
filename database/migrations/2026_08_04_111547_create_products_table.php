@@ -37,7 +37,7 @@ return new class extends Migration
 
             // Stock
             $table->integer('quantity')->default(0);
-            $table->string('unit')->nullable('pcs');
+            $table->string('unit')->nullable();
 
             // Image
             $table->string('image')->nullable();
@@ -48,7 +48,17 @@ return new class extends Migration
             // Status
             $table->boolean('status')->default(true);
 
+            $table->softDeletes();
+
             $table->timestamps();
+
+             // Indexes
+            $table->index('name');
+            $table->index('category_id');
+            $table->index('supplier_id');
+            $table->index('purchase_price');
+            $table->index('selling_price');
+            $table->index('status');
         });
     }
 

@@ -50,5 +50,33 @@ class ProductSeeder extends Seeder
             'description'     => 'Wireless Mouse',
             'status'          => 1,
         ]);
+
+        Product::create([
+            'category_id'     => $category->id,
+            'supplier_id'     => $supplier->id,
+            'name'            => 'Canon Printer Toner',
+            'sku'             => 'TONER-CANON-001',
+            'barcode'         => '8901234567894',
+            'purchase_price'  => 1800,
+            'selling_price'   => 2500,
+            'quantity'        => 15,
+            'unit'            => 'pcs',
+            'description'     => 'Canon imageCLASS compatible toner',
+            'status'          => 1,
+        ]);
+
+        Product::create([
+            'category_id'     => $category->id,
+            'supplier_id'     => $supplier->id,
+            'name'            => 'Brother TN-2365 Toner',
+            'sku'             => 'TONER-BROTHER-001',
+            'barcode'         => '8901234567895',
+            'purchase_price'  => 2200,
+            'selling_price'   => 3000,
+            'quantity'        => 20,
+            'unit'            => 'pcs',
+            'description'     => 'Brother printer toner cartridge',
+            'status'          => 1,
+        ]);
     }
 }

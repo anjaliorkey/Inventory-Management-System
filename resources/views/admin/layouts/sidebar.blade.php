@@ -74,16 +74,33 @@
                     </li>
                 </ul>
             </li>
+             <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-box"></i>
+                    <p>
+                      Products
+                        <i class="right fas fa-angle-left"></i>
 
-          <li class="nav-item">
-            <a href="{{ route('admin.product.index') }}" class="nav-link ">
-              <i class="nav-icon fas fa-box"></i>
-              <p>
-              Products
+                    </p>
+                </a>
 
-              </p>
-            </a>
-          </li>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.product.index') }}" class="nav-link">
+                            <i class="fas fa-box mr-1"></i>
+                            <p>Products List</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.product.trash') }}" class="nav-link">
+                          <i class="fas fa-trash-alt mr-1"></i>
+                            <p>Products Trash</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
 
 
           <li class="nav-item">

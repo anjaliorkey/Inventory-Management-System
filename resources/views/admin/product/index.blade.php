@@ -18,7 +18,7 @@
                 Product List
             </h3>
 
-            <a href=""
+            <a href="{{ route('admin.product.show') }}"
                class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i> Add Product
             </a>
@@ -149,7 +149,7 @@
 
                         <td>
 
-                            <a href=""
+                            <a href="{{ route('admin.product.view', $product->id) }}"
                                class="btn btn-warning btn-sm"
                                title="View">
 
@@ -157,7 +157,7 @@
 
                             </a>
 
-                            <a href=""
+                            <a href="{{  route('admin.product.edit', $product->id ) }}"
                                class="btn btn-info btn-sm"
                                title="Edit">
 
@@ -165,21 +165,13 @@
 
                             </a>
 
-                            <form action=""
-                                  method="POST"
-                                  style="display:inline-block">
+                              <a href="{{ route('admin.product.delete', $product->id) }}"
+                               class="btn btn-danger btn-sm"  onclick="return confirm('Are you sure you want to delete this product?')"
+                               title="Edit">
 
-                                @csrf
-                                @method('DELETE')
+                                <i class="fas fa-trash"></i>
 
-                                <button class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure you want to delete this product?')">
-
-                                    <i class="fas fa-trash"></i>
-
-                                </button>
-
-                            </form>
+                            </a>
 
                         </td>
 

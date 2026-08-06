@@ -61,19 +61,23 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::put('/update-supplier/{id}', [SupplierController::class, 'update'  ])->name('admin.supplier.update');
     Route::get('/details-supplier/{id}', [SupplierController::class, 'show'  ])->name('admin.supplier.view');
     Route::get('/delete-supplier/{id}', [SupplierController::class, 'destroy'  ])->name('admin.supplier.delete');
-    // Trash List
     Route::get('/supplier-trash', [SupplierController::class, 'trash'])->name('admin.supplier.trash');
-    // Restore Supplier
     Route::post('/supplier-restore/{id}', [SupplierController::class, 'restore'])->name('admin.supplier.restore');
-   // Permanent Delete
-   Route::delete('/supplier-force-delete/{id}', [SupplierController::class, 'forceDelete'])->name('admin.supplier.forceDelete');
+    Route::delete('/supplier-force-delete/{id}', [SupplierController::class, 'forceDelete'])->name('admin.supplier.forceDelete');
 
 
 
     //Products
-     Route::get('/products', [ProductController::class, 'index'  ])->name('admin.product.index');
-
-
+    Route::get('/products', [ProductController::class, 'index'  ])->name('admin.product.index');
+    Route::get('/create-products', [ProductController::class, 'create'  ])->name('admin.product.show');
+    Route::post('/add-products', [ProductController::class, 'store'  ])->name('admin.product.add');
+    Route::get('/edit-products/{id}', [ProductController::class, 'edit'  ])->name('admin.product.edit');
+    Route::get('/details-products/{id}', [ProductController::class, 'show'  ])->name('admin.product.view');
+    Route::put('/update-products/{id}', [ProductController::class, 'update'  ])->name('admin.product.update');
+    Route::get('/delete-products/{id}', [ProductController::class, 'destroy'  ])->name('admin.product.delete');
+    Route::get('/products-trash', [ProductController::class, 'trash'])->name('admin.product.trash');
+    Route::post('/products-restore/{id}', [ProductController::class, 'restore'])->name('admin.product.restore');
+    Route::delete('/products-force-delete/{id}', [ProductController::class, 'forceDelete'])->name('admin.product.forceDelete');
 
 
 });
