@@ -7,6 +7,8 @@ use App\Http\Controllers\StaffController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\CheckUser;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SupplierController;
+use App\Http\Controllers\Admin\ProductController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -20,7 +22,6 @@ Route::get('/', function () {
     }
 
     return view('welcome');
-
 
     return view('admin.dashboard');
 
@@ -45,7 +46,35 @@ Route::middleware([CheckAdmin::class])->group(function () {
 
 
     //Categories
-    Route::get('/category', [CategoryController::class, 'index'  ])->name('admin.categories.index');
+    Route::get('/category', [CategoryController::class, 'index'  ])->name('admin.Category.index');
+    Route::get('/show-category', [CategoryController::class, 'create'  ])->name('admin.Category.show');
+    Route::post('/add-category', [CategoryController::class, 'store'  ])->name('admin.Category.add');
+    Route::get('/edit-category/{id}', [CategoryController::class, 'edit'  ])->name('admin.Category.edit');
+    Route::put('/update-category/{id}', [CategoryController::class, 'update'  ])->name('admin.Category.update');
+    Route::get('/delete-category/{id}', [CategoryController::class, 'destroy'  ])->name('admin.Category.delete');
+
+    //Supplier
+    Route::get('/supplier', [SupplierController::class, 'index'  ])->name('admin.supplier.index');
+    Route::get('/Show-supplier', [SupplierController::class, 'create'  ])->name('admin.supplier.show');
+    Route::post('/add-supplier', [SupplierController::class, 'store'  ])->name('admin.supplier.add');
+    Route::get('/edit-supplier/{id}', [SupplierController::class, 'edit'  ])->name('admin.supplier.edit');
+    Route::put('/update-supplier/{id}', [SupplierController::class, 'update'  ])->name('admin.supplier.update');
+    Route::get('/details-supplier/{id}', [SupplierController::class, 'show'  ])->name('admin.supplier.view');
+    Route::get('/delete-supplier/{id}', [SupplierController::class, 'destroy'  ])->name('admin.supplier.delete');
+    // Trash List
+    Route::get('/supplier-trash', [SupplierController::class, 'trash'])->name('admin.supplier.trash');
+    // Restore Supplier
+    Route::post('/supplier-restore/{id}', [SupplierController::class, 'restore'])->name('admin.supplier.restore');
+   // Permanent Delete
+   Route::delete('/supplier-force-delete/{id}', [SupplierController::class, 'forceDelete'])->name('admin.supplier.forceDelete');
+
+
+
+    //Products
+     Route::get('/products', [ProductController::class, 'index'  ])->name('admin.product.index');
+
+
+
 
 });
 

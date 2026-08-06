@@ -5,5 +5,5 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="">develop by charu</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2025-2026 <a href="">develop by charu</a>.</strong> All rights reserved.
   </footer>

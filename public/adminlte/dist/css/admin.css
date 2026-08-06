@@ -1,0 +1,274 @@
+/* =====================================
+   COMMON ADMIN UI CSS
+   Use: Category, Product, Supplier,
+   Customer, Purchase etc.
+===================================== */
+
+
+/* Card Common */
+
+.common-card{
+    border:none;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+
+/* Card Header */
+
+.common-card .common-card-header{
+    padding:16px 20px;
+    background:#fff;
+    border-bottom:1px solid #e9ecef;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.common-card .common-title{
+    font-size:18px;
+    font-weight:600;
+    color:#343a40;
+    margin:0;
+}
+
+
+
+/* ==========================
+   BUTTON
+========================== */
+
+.btn-common{
+    border-radius:7px;
+    padding:7px 15px;
+    font-size:14px;
+    font-weight:500;
+}
+
+
+
+/* ==========================
+   TABLE PAGE
+========================== */
+
+
+.common-card .table-area{
+    padding:20px;
+}
+
+
+/* Search */
+
+.common-search{
+    margin-bottom:15px;
+}
+
+
+.common-search input{
+    height:38px;
+    border-radius:7px;
+}
+
+
+
+/* Table */
+
+.common-table{
+    width:100%;
+    margin-bottom:0;
+}
+
+
+.common-table thead th{
+
+    background:#f8f9fa;
+    color:#343a40;
+    font-size:13px;
+    font-weight:600;
+    padding:12px;
+
+}
+
+
+.common-table tbody td{
+
+    padding:12px;
+    font-size:14px;
+    color:#495057;
+    vertical-align:middle;
+
+}
+
+
+
+.common-table tbody tr:hover{
+
+    background:#f8f9fa;
+
+}
+
+
+/* Action Buttons */
+
+.action-btn{
+
+    width:32px;
+    height:32px;
+    padding:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:6px;
+    margin-right:5px;
+
+}
+
+
+
+/* Status Badge */
+
+.status-badge{
+
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+
+}
+
+
+
+/* ==========================
+   FORM PAGE
+========================== */
+
+
+.form-card-body{
+
+    padding:25px;
+
+}
+
+
+
+.form-label{
+
+    font-weight:600;
+    color:#495057;
+
+}
+
+
+.form-control,
+.form-select{
+
+    height:45px;
+    border-radius:8px;
+
+}
+
+
+
+textarea.form-control{
+
+    height:120px;
+
+}
+
+
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#0d6efd;
+    box-shadow:none;
+
+}
+
+
+
+.form-actions{
+
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+
+}
+
+
+.form-actions .btn{
+
+    min-width:140px;
+    height:45px;
+    border-radius:8px;
+
+}
+
+
+/*==========================
+  Modern Success Alert
+===========================*/
+.custom-alert{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:10px 15px;
+    margin:10px;
+    border-radius:10px;
+    border-left:5px solid #16a34a;
+    background:linear-gradient(135deg,#f0fff4,#dcfce7);
+    box-shadow:0 8px 20px rgba(22,163,74,.15);
+    position:relative;
+    animation:slideDown .4s ease;
+}
+
+.custom-alert .alert-icon{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    border-radius:50%;
+    background:#16a34a;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:26px;
+}
+
+.custom-alert h6{
+    font-size:20px;
+    font-weight:700;
+    color:#15803d;
+    margin-bottom:2px;
+}
+
+.custom-alert p{
+    color:#444;
+    font-size:15px;
+}
+
+.custom-alert .btn-close{
+    position:absolute;
+    top:15px;
+    right:15px;
+    opacity:.7;
+}
+
+.custom-alert .btn-close:hover{
+    opacity:1;
+}
+
+/* Animation */
+@keyframes slideDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

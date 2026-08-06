@@ -1,8 +1,8 @@
 @extends('admin.layouts.master')
 
-@section('title','Category')
+@section('title','Supplier')
 
-@section('page_title','Category List')
+@section('page_title','Supplier List')
 
 @section('content')
 
@@ -14,13 +14,13 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap">
 
             <h3 class="card-title">
-                <i class="fas fa-list mr-1"></i>
-                Category List
+                <i class="fas fa-truck"></i>
+                Supplier List
             </h3>
 
-            <a href="{{ route('admin.Category.show') }}"
+            <a href="{{ route('admin.supplier.show') }}"
                class="btn btn-primary btn-sm">
-                <i class="fas fa-plus"></i> Add Category
+                <i class="fas fa-plus"></i> Add Supplier
             </a>
 
         </div>
@@ -45,7 +45,7 @@
 
         <!-- Search -->
 
-        <form method="GET" action="{{ route('admin.Category.index') }}" class="mb-3">
+        <form method="GET" action="{{ route('admin.supplier.index') }}" class="mb-3">
 
             <div class="input-group">
 
@@ -66,7 +66,7 @@
 
                     @if(request('search'))
 
-                    <a href="{{ route('admin.Category.index') }}"
+                    <a href="{{ route('admin.supplier.index') }}"
                        class="btn btn-secondary">
 
                         Reset
@@ -87,36 +87,53 @@
 
             <table class="table table-bordered table-hover">
 
-                <thead class="bg-black">
+                <thead class="thead-dark">
 
-                    <tr>
+                <tr>
 
-                        <th width="70">ID</th>
+                    <th width="60">#</th>
 
-                        <th>Name</th>
+                    <th>Company Name</th>
 
-                        <th>Status</th>
+                    <th>Supplier Name</th>
 
-                        <th width="180">Action</th>
+                    <th>Mobile</th>
 
-                    </tr>
+                    <th>Email</th>
+
+                    <th>City</th>
+
+                    <th>Status</th>
+
+                    <th width="130">Action</th>
+
+                </tr>
 
                 </thead>
 
                 <tbody>
 
-                @forelse($categories as $category)
+                @forelse($suppliers as $supplier)
 
                     <tr>
 
                         <td>
-                            {{ $loop->iteration + ($categories->currentPage()-1) * $categories->perPage() }}
+                            {{ $loop->iteration + ($suppliers->firstItem() - 1) }}
                         </td>
 
-                        <td>{{ $category->name }}</td>
+                        <td>{{ $supplier->company_name }}</td>
+
+                        <td>{{ $supplier->supplier_name }}</td>
+
+                        <td>{{ $supplier->mobile }}</td>
+
+                        <td>{{ $supplier->email ?? '-' }}</td>
+
+                        <td>{{ $supplier->city }}</td>
 
                         <td>
-                            @if($category->status)
+
+                            @if($supplier->status)
 
                                 <span class="badge badge-success">
                                     Active
@@ -134,19 +151,29 @@
 
                         <td>
 
-                            <a href="{{ route('admin.Category.edit',$category->id) }}"
-                               class="btn btn-info btn-sm">
+                            <a href="{{ route('admin.supplier.edit', $supplier->id ) }}"
+                               class="btn btn-sm btn-info">
 
                                 <i class="fas fa-edit"></i>
 
                             </a>
 
-                            <a href="{{ route('admin.Category.delete',$category->id) }}"
-                               class="btn btn-danger btn-sm">
+                            <a href="{{ route('admin.supplier.delete', $supplier->id ) }}"
+                               class="btn btn-sm btn-danger">
 
                                 <i class="fas fa-trash"></i>
 
                             </a>
+
+                            <a href="{{ route('admin.supplier.view', $supplier->id ) }}"
+                               class="btn btn-sm btn-warning">
+
+                                <i class="fas fa-eye"></i>
+
+                            </a>
+
+
+
 
                         </td>
 
@@ -156,9 +183,9 @@
 
                     <tr>
 
-                        <td colspan="4" class="text-center text-muted">
+                        <td colspan="8" class="text-center">
 
-                            No Record Found
+                            No Suppliers Found
 
                         </td>
 
@@ -174,12 +201,27 @@
 
         <!-- Pagination -->
 
-        <div class="mt-3 d-flex justify-content-end">
+        <div class="d-flex justify-content-between align-items-center mt-3">
 
-            {{ $categories->links('pagination::bootstrap-4') }}
+            <div>
+
+                Showing
+                {{ $suppliers->firstItem() ?? 0 }}
+                to
+                {{ $suppliers->lastItem() ?? 0 }}
+                of
+                {{ $suppliers->total() }}
+                entries
+
+            </div>
+
+            <div>
+
+                {{ $suppliers->appends(request()->query())->links() }}
+
+            </div>
 
         </div>
-
     </div>
 
 </div>
@@ -193,7 +235,7 @@
             alert.remove();
         },500);
       }
-   },9000);
+   },4000);
 
 </script>
 

@@ -30,7 +30,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashboard
@@ -40,7 +40,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.categories.index') }}" class="nav-link ">
+            <a href="{{ route('admin.Category.index') }}" class="nav-link ">
               <i class="nav-icon fas fa-list"></i>
               <p>
                Categories
@@ -48,8 +48,35 @@
               </p>
             </a>
           </li>
+
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-truck"></i>
+                    <p>
+                        Vendors
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.supplier.index') }}" class="nav-link">
+                            <i class="fas fa-list mr-1"></i>
+                            <p>All Vendors</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.supplier.trash') }}" class="nav-link">
+                          <i class="fas fa-trash-alt nav-icon"></i>
+                            <p>Vendor Trash</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
           <li class="nav-item">
-            <a href="#" class="nav-link ">
+            <a href="{{ route('admin.product.index') }}" class="nav-link ">
               <i class="nav-icon fas fa-box"></i>
               <p>
               Products
@@ -57,15 +84,7 @@
               </p>
             </a>
           </li>
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-truck"></i>
-              <p>
-               Vendors
 
-              </p>
-            </a>
-          </li>
 
           <li class="nav-item">
                 <a href=" " class="nav-link">
